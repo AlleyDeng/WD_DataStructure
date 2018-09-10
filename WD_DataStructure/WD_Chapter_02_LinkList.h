@@ -22,6 +22,10 @@ LinkList C2_3_T08_SearchCommonNode(LinkList L1, LinkList L2);
 void C2_3_T09_DelMinWhole(LinkList L);
 LinkList C2_3_T10_ListSepaParity(LinkList A);
 LinkList C2_3_T11_ListSepaParity(LinkList A);
+void C2_3_T12_ListDelSameElem(LinkList L);
+void C2_3_T13_MergeList(LinkList L1, LinkList L2);
+LinkList C2_3_T14_CreateCommElemList(LinkList L1, LinkList L2);
+
 
 
 #endif /* WD_CHAPTER_02_LINKLIST_H_ */

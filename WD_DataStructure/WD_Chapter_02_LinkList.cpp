@@ -7,14 +7,14 @@
 
 #include "LinkList.h"
 
-/**
- *	2.3.7 01:
- *	 要求：递归算法，删除不带头结点的单链表L中所有值为x的节点
- * */
+ /**
+  *	2.3.7 01:
+  *	 要求：递归算法，删除不带头结点的单链表L中所有值为x的节点
+  * */
 void C2_3_T01_DelX(LinkList *L, ElemType x)
 {	// 此处需要对指针L的值进行更改，所有采用二级指针
 	LNode *p;
-	
+
 	if (*L == NULL)
 	{
 		return;
@@ -107,7 +107,7 @@ void C2_3_T04_DelMinNode(LinkList L)
 	2.3.7 05
 	要求：将带头结点的链表在空间复杂度为O(1)的情况下逆置
 	思路：将链表结点依次插入在头结点后面
-         (或者用三个指针域分别为pre、p、r=p->next遍历链表)
+		 (或者用三个指针域分别为pre、p、r=p->next遍历链表)
 */
 LinkList C2_3_T05_ReverseLinkList(LinkList L)
 {
@@ -311,7 +311,7 @@ LinkList C2_3_T10_ListSepaParity(LinkList A)
 
 /*
 	2.3.7 11:
-	要求：C(a1, b1, a2, b2, ...... , an, bn) 
+	要求：C(a1, b1, a2, b2, ...... , an, bn)
 		-------> A(a1, a2, ...... , an), B(bn, ...... b2, b1)
 	思路：逐一遍历，B链表采用头插法逆序
 */
@@ -330,13 +330,130 @@ LinkList C2_3_T11_ListSepaParity(LinkList A)
 
 		p = p->next;			// 向后一位
 		q = p->next;			// 头插时断链，q保存p后继
-		
+
 		p->next = B->next;		// 头插至B
 		B->next = p;
-		
+
 		p = q;
 	}
 	rearA->next = NULL;
 
 	return B;
+}
+
+/*
+	2.3.7 12:
+	要求：递增序的链表中，删除其相同的元素（我默认带头结点）
+	思路：遍历链表，若结点的后继结点与结点元素值相等，则删除后继结点
+*/
+void C2_3_T12_ListDelSameElem(LinkList L)
+{
+	LNode *p = L->next;
+	LNode *q;
+
+	if (p == NULL)
+	{
+		return;
+	}
+	while (p->next != NULL)
+	{
+		q = p->next;
+		if (p->data == q->data)
+		{
+			p->next = q->next;
+			free(q);
+			q = NULL;
+		}
+		else
+		{
+			p = p->next;
+		}
+	}
+}
+
+/*
+	2.3.7 13:
+	要求：将两个按元素递增排序的单链表，将这两个单链表归并为一个按元素值
+	递减排序的单链表，要求用原来两个链表的结点存放归并后的单链表
+	思路：头插法，归并
+*/
+void C2_3_T13_MergeList(LinkList L1, LinkList L2)
+{
+	LNode *p1 = L1->next;
+	LNode *p2 = L2->next;
+	LNode *q, *l = L1;		// l指向新链表的头结点
+	l->next = NULL;
+	while (p1 != NULL && p2 != NULL)
+	{
+		if (p1->data < p2->data)
+		{
+			q = p1->next;
+			p1->next = l->next;
+			l->next = p1;
+			p1 = q;
+		}
+		else
+		{
+			q = p2->next;
+			p2->next = l->next;
+			l->next = p2;
+			p2 = q;
+		}
+	}
+	while (p1 != NULL)
+	{
+		q = p1->next;
+		p1->next = l->next;
+		l->next = p1;
+		p1 = q;
+	}
+	while (p2 != NULL)
+	{
+		q = p2->next;
+		p2->next = l->next;
+		l->next = p2;
+		p2 = q;
+	}
+	L1->next = l->next;
+	L2->next = l->next;
+}
+
+/*
+	2.3.7 14:
+	要求：从两个递增有序的两个链表中，创建新的链表，要求不能破坏原链表
+	思路：分别遍历，若相等则创建结点插入新链表之后，若不相等，则元素值
+	小的向后移一个位置。
+*/
+LinkList C2_3_T14_CreateCommElemList(LinkList L1, LinkList L2)
+{
+	LNode *p1 = L1->next;
+	LNode *p2 = L2->next;
+	LinkList retLinkList = (LinkList)malloc(sizeof(LNode));
+	LNode *rear;
+	retLinkList->next = NULL;
+	rear = retLinkList;
+
+	while (p1 != NULL && p2 != NULL)
+	{
+		if (p1->data < p2->data)
+		{
+			p1 = p1->next;
+		}
+		else if (p2->data < p1->data)
+		{
+			p2 = p2->next;
+		}
+		else
+		{
+			LNode *newNode = (LNode *)malloc(sizeof(LNode));
+			newNode->next = NULL;
+			newNode->data = p1->data;
+			rear->next = newNode;
+			rear = newNode;
+			p1 = p1->next;
+			p2 = p2->next;
+		}
+	}
+
+	return retLinkList;
 }
