@@ -170,11 +170,12 @@ Status DestroyLinkList(LinkList LHead)
 {	// 带头结点，保留头结点
 	LNode *q = LHead;
 	LNode *p = q->next;
-
+	
 	while (p != NULL)
 	{
 		q->next = p->next;
 		free(p);
+		p = NULL;
 		p = q->next;
 	}
 	LHead->next = NULL;

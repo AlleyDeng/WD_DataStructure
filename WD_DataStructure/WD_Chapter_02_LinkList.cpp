@@ -457,3 +457,101 @@ LinkList C2_3_T14_CreateCommElemList(LinkList L1, LinkList L2)
 
 	return retLinkList;
 }
+
+/*
+	2.3.7 15:
+	要求：链表L1、L2表示连个递增集合，求L1、L2的交集，并存放于L1
+	思路：采用归并思想。两集合相同的元素保留，其他全部释放
+*/
+LinkList C2_3_T15_SetIntersection(LinkList L1, LinkList L2)
+{
+	LNode *p1 = L1->next;
+	LNode *p2 = L2->next;
+	LNode *rear = L1, *q;
+	L1->next = NULL;
+
+	while (p1 != NULL && p2 != NULL)
+	{
+		if (p1->data < p2->data)
+		{
+			q = p1;
+			p1 = p1->next;
+			free(q);
+			q = NULL;
+		}
+		else if (p2->data < p1->data)
+		{
+			q = p2;
+			p2 = p2->next;
+			free(q);
+			q = NULL;
+		}
+		else
+		{	// 元素相等，交集
+			q = p1->next;		// L1中结点保存
+			rear->next = p1;
+			p1->next = NULL;
+			rear = p1;
+			p1 = q;
+		
+			q = p2;				// L2中结点释放
+			p2 = p2->next;
+			free(q);			// q释放之后，与链表不再有联系，q=NULL不会给p2赋值，
+			q = NULL;			// p2仍为野指针
+		}
+	}
+
+	while (p1 != NULL)
+	{
+		q = p1;
+		p1 = p1->next;
+		free(q);
+		q = NULL;
+	}
+
+	while (p2 != NULL)
+	{
+		q = p2;
+		p2 = p2->next;
+		free(q);
+		q = NULL;
+	}
+	L2->next = NULL;
+	return L1;
+}
+
+/*
+	2.3.7 16:
+	要求：判断LSub序列是否是LSrc的子序列
+	思路：两层嵌套循环遍历
+*/
+Status C2_3_T16_IsSubSequence(LinkList LSrc, LinkList LSub)
+{
+	LNode *p = LSrc->next;
+	LNode *pre = p;
+	LNode *q = LSub->next;
+	
+	while (p != NULL && q != NULL)
+	{
+		if (p->data == q->data)
+		{
+			p = p->next;
+			q = q->next;
+		}
+		else
+		{
+			pre = pre->next;
+			p = pre;
+			q = LSub->next;
+		}
+	}
+
+	if (q == NULL)
+	{	// 子列遍历到尾端
+		return OK;
+	}
+	else
+	{
+		return ERROR;
+	}
+}

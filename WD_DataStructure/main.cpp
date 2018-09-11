@@ -11,11 +11,19 @@ int main(void)
 
 	PrintLinkList(L1);
 	PrintLinkList(L2);
-	L1 = C2_3_T14_CreateCommElemList(L1, L2);
-	PrintLinkList(L1);
+	
+	if (C2_3_T16_IsSubSequence(L1, L2))
+	{
+		printf("SUCCESSFUL\n");
+	}
+	else
+	{
+		printf("FAILED\n");
+	}
+	//PrintLinkList(L1);
 	//PrintLinkList(L2);
 
-	//DestroyLinkList(L1);
+	DestroyLinkList(L1);
 	DestroyLinkList(L2);
 
 	return 0;

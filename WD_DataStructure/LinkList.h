@@ -10,10 +10,10 @@
 
 #include "Macro.h"
 
-typedef struct Node
+typedef struct LNode
 {
 	ElemType data;
-	struct Node *next;
+	struct LNode *next;
 } LNode, *LinkList;
 
 Status GetLinkListElem(LinkList L, int pos, ElemType *e);

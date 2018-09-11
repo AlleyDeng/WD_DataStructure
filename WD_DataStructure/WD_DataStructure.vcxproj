@@ -110,6 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DLinkList.cpp" />
     <ClCompile Include="LinkList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SqList.cpp" />
@@ -117,6 +118,7 @@
     <ClCompile Include="WD_Chapter_02_SqList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DLinkList.h" />
     <ClInclude Include="LinkList.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="SqList.h" />

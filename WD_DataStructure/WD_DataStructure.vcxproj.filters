@@ -30,6 +30,9 @@
     <ClCompile Include="WD_Chapter_02_SqList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="DLinkList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkList.h">
@@ -45,6 +48,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="WD_Chapter_02_SqList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DLinkList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
