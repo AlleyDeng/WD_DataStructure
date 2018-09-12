@@ -5,7 +5,7 @@
  *      Author: deng_chao
  */
 
-#include "LinkList.h"
+#include "WD_Chapter_02_LinkList.h"
 
  /**
   *	2.3.7 01:
@@ -554,4 +554,58 @@ Status C2_3_T16_IsSubSequence(LinkList LSrc, LinkList LSub)
 	{
 		return ERROR;
 	}
+}
+
+/*
+	2.3.7 17:
+	要求：判断循环双链表是否对称
+*/
+Status C2_3_T17_IsDLinkListSymmetry(DLinkList L)
+{
+	DLNode *p = L->prior;
+	DLNode *n = L->next;
+
+	while (p->data == n->data && p != n)
+	{
+		p = p->prior;
+		n = n->next;
+	}
+
+	if (p == n)
+	{
+		return OK;
+	}
+	else
+	{
+		ERROR;
+	}
+}
+
+/*
+	2.3.7 18:
+	要求：将循环单链表LHead1链接到循环单链表LHead2后，仍保持循环链表形式
+*/
+LinkList C2_3_T18_LinkTwoCLinks(LinkList LHead1, LinkList LHead2)
+{
+	LNode *rear = LHead1->next;
+	LNode *p = LHead2->next;
+	LNode *n = NULL;
+
+	while (rear->next != LHead1)
+	{
+		rear = rear->next;
+	}
+
+	while (p != LHead2)
+	{
+		n = p->next;
+		p->next = rear->next;
+		rear->next = p;
+		rear = p;
+		p = n;
+		n = n->next;
+	}
+
+	LHead2->next = NULL;
+	return LHead1;
 }

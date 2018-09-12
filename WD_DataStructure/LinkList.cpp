@@ -142,6 +142,38 @@ Status CreateLinkList(LinkList *LHead)
 	return OK;
 }
 
+Status CreateCLinkList(LinkList *LHead)
+{	// 创建循环链表
+	LNode *p = NULL;
+	LNode *rear = NULL;
+	ElemType elem;
+
+	p = (LNode *)malloc(sizeof(LNode));
+	if (p == NULL)
+	{
+		return ERROR;
+	}
+	p->next = NULL;
+	rear = p;
+	*LHead = p;
+
+	while (scanf("%d", &elem) != EOF)
+	{
+		p = (LNode *)malloc(sizeof(LNode));
+		if (p == NULL)
+		{
+			return ERROR;
+		}
+		p->data = elem;
+		p->next = NULL;
+		rear->next = p;
+		rear = p;
+		rear->next = *LHead;
+	}
+
+	return OK;
+}
+
 void PrintLinkListNoHNode(LinkList L)
 {	// 无头结点
 	LNode *p = L;
@@ -166,9 +198,22 @@ void PrintLinkList(LinkList LHead)
 	printf("\n");
 }
 
-Status DestroyLinkList(LinkList LHead)
+void PrintCLinkList(LinkList LHead)
+{	// 打印循环链表
+	LNode *p = LHead->next;
+
+	while (p != LHead)
+	{
+		printf("%d\t", p->data);
+		p = p->next;
+	}
+	printf("\n");
+}
+
+Status DestroyLinkList(LinkList *LHead)
 {	// 带头结点，保留头结点
-	LNode *q = LHead;
+	LNode *q = *LHead;
+	LNode *head = *LHead;
 	LNode *p = q->next;
 	
 	while (p != NULL)
@@ -178,7 +223,29 @@ Status DestroyLinkList(LinkList LHead)
 		p = NULL;
 		p = q->next;
 	}
-	LHead->next = NULL;
+	head->next = NULL;
+	free(*LHead);
+	*LHead = NULL;
+	
+	return OK;
+}
+
+Status DestroyCLinkList(LinkList *LHead)
+{
+	LNode *q = *LHead;
+	LNode *head = *LHead;
+	LNode *p = q->next;
+
+	while (p != *LHead && p != NULL)
+	{
+		q->next = p->next;
+		free(p);
+		p = NULL;
+		p = q->next;
+	}
+	head->next = NULL;
+	free(*LHead);
+	*LHead = NULL;
 
 	return OK;
 }
@@ -195,3 +262,4 @@ int GetLinkListLength(LinkList L)
 
 	return len;
 }
+

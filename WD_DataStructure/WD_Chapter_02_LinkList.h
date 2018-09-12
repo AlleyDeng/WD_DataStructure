@@ -10,6 +10,7 @@
 
 #include "Macro.h"
 #include "LinkList.h"
+#include "DLinkList.h"
 
 void C2_3_T01_DelX(LinkList *L, ElemType x);
 void C2_3_T02_DelX(LinkList L, ElemType x);
@@ -27,5 +28,7 @@ void C2_3_T13_MergeList(LinkList L1, LinkList L2);
 LinkList C2_3_T14_CreateCommElemList(LinkList L1, LinkList L2);
 LinkList C2_3_T15_SetIntersection(LinkList L1, LinkList L2);
 Status C2_3_T16_IsSubSequence(LinkList LSrc, LinkList LSub);
+Status C2_3_T17_IsDLinkListSymmetry(DLinkList L);
+LinkList C2_3_T18_LinkTwoCLinks(LinkList LHead1, LinkList LHead2);
 
 #endif /* WD_CHAPTER_02_LINKLIST_H_ */

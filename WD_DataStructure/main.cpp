@@ -3,28 +3,18 @@
 
 int main(void)
 {
-	LinkList L1, L2;
-	ElemType elem = 5;
+	LinkList L = NULL;
+	LinkList L1 = NULL;
 
-	CreateLinkList(&L1);
-	CreateLinkList(&L2);
+	CreateCLinkList(&L);
+	CreateCLinkList(&L1);
 
-	PrintLinkList(L1);
-	PrintLinkList(L2);
-	
-	if (C2_3_T16_IsSubSequence(L1, L2))
-	{
-		printf("SUCCESSFUL\n");
-	}
-	else
-	{
-		printf("FAILED\n");
-	}
-	//PrintLinkList(L1);
-	//PrintLinkList(L2);
+	C2_3_T18_LinkTwoCLinks(L, L1);
+	PrintCLinkList(L);
 
-	DestroyLinkList(L1);
-	DestroyLinkList(L2);
+	DestroyCLinkList(&L);
+	DestroyCLinkList(&L1);
+
 
 	return 0;
 }
