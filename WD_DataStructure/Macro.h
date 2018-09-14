@@ -10,6 +10,8 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
+#define C2_3_T20
+
 #include <stdio.h>
 #include <stdlib.h>
 

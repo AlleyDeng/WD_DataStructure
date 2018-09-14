@@ -609,3 +609,188 @@ LinkList C2_3_T18_LinkTwoCLinks(LinkList LHead1, LinkList LHead2)
 	LHead2->next = NULL;
 	return LHead1;
 }
+
+/*
+	2.3.7 19:
+	要求：带头结点的循环链表，依次删除最小值并打印，直到链表为空，最后删除头结点
+*/
+void C2_3_T19_CirDelMinAll(LinkList *LHead)
+{
+	LNode *pre, *p;
+	LNode *minNode, *minPre;
+
+	while ((*LHead)->next != *LHead)
+	{
+	
+	pre = *LHead;
+		p = pre->next;
+		minNode = p;
+		minPre = pre;
+		while (p != *LHead)
+		{
+			if (minNode->data > p->data)
+			{
+				minPre = pre;
+				minNode = p;
+			}
+			pre = p;
+			p = p->next;
+		}
+
+		minPre->next = minNode->next;
+		printf("%d\t", minNode->data);
+		free(minNode);
+		minNode = NULL;
+	}
+	printf("\n");
+
+	free(*LHead);
+	*LHead = NULL;
+}
+
+/*
+	2.3.7 20:
+	要求：使结点按频度递减的顺序排列，同时最近访问的结点排在频度相同的结点的前面
+	思路：找到x结点后，频度加一，并摘除，向前搜索第一个频度大于目标结点的位置并插
+	入在其后
+*/
+DLNode *C2_3_T20_Locate(DLinkList LHead, ElemType x)
+{
+	DLNode *p = LHead->next;
+	DLNode *q;
+	DLNode *ret = NULL;
+
+	while (p != NULL && p->data != x)
+	{
+		p = p->next;
+	}
+
+	if (p == NULL)
+	{
+		return ERROR;
+	}
+
+	p->freq++;
+	p->next->prior = p->prior;
+	p->prior->next = p->next;
+
+
+	q = p->prior;
+	while (q->freq <= p->freq && q != LHead)
+	{
+		q = q->prior;
+	}
+
+
+
+	p->next = q->next;
+	q->next->prior = p;
+	p->prior = q;
+	q->next = p;
+
+	return p;
+}
+
+/*
+	2.3.7 21
+	要求：寻找单链表的倒数第k个结点
+	思路：让一指针从头遍历k个位置后，另一指针从头开始同时遍历，直到前者到达表尾
+*/
+Status C2_3_T21_SearchKth(LinkList LHead, int k)
+{
+	int i = 0;
+	LNode *p = LHead;
+	LNode *q = LHead;
+
+	while (i < k && p != NULL)
+	{
+		++i;
+		p = p->next;
+	}
+
+	if (p == NULL || i < k)
+	{
+		return ERROR;
+	}
+
+	while (p != NULL)
+	{
+		p = p->next;
+		q = q->next;
+	}
+
+	printf("%d\n", q->data);
+
+	return OK;
+}
+
+
+/*
+	2.3.7 22:
+	要求：两个单词分别由两个带头结点的单链表保存，找出两链表共同后缀的起始位置
+	思路：求出两者长度差，长者先向后遍历长度差个位置，在两者一起遍历，找到初始
+	元素相等的位置。
+*/
+LNode *C2_3_T22_SearchSameSuf(LinkList LHead1, LinkList LHead2)
+{
+	int len1 = GetLinkListLength(LHead1);
+	int len2 = GetLinkListLength(LHead2);
+	LNode *p, *q;
+	LNode *lList = len1 > len2 ? LHead1 : LHead2;
+	LNode *sList = len2 > len1 ? LHead2 : LHead1;
+
+	for (p = LHead1; len1 > len2; len1--)
+	{
+		p = p->next;
+	}
+	for (q = LHead2; len1 < len2; len2--)
+	{
+		q = q->next;
+	}
+	while (p->next != NULL && p->next != q->next)
+	{
+		p = p->next;
+		q = q->next;
+	}
+
+	return p->next;
+}
+
+/*
+	2.3.7 23:
+	要求：用时间复杂度尽可能高效的算法，仅保留第一次出现的结点，而删除其余绝对值与
+	之相同的结点，|data|<=n
+	思路：空间换时间。用arr[|data|]表示元素与data绝对值相等的结点是否出现过，从链
+	表头开始遍历，与data绝对值相同的结点，是否出现过，若出现过则删除，否者继续向后
+	遍历
+*/
+void C2_3_T23_DelSameElem(LinkList L, int n)
+{
+	LNode *p = L->next, *pre = L;
+	int *arr, m, i;
+
+	arr = (int *)malloc(sizeof(int)*(n + 1));
+	for (i = 0; i < n + 1; i++)
+	{
+		*(arr + i) = 0;
+	}
+
+	while (p != NULL)
+	{
+		int m = p->data > 0 ? p->data : -(p->data);
+		if (*(arr + m) == 0)
+		{
+			*(arr + m) = 1;
+			pre = p;
+			p = p->next;
+		}
+		else
+		{
+			pre->next = p->next;
+			free(p);
+			p = NULL;
+			p = pre->next;
+		}
+	}
+	free(arr);
+}

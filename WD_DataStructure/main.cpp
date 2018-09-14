@@ -4,16 +4,17 @@
 int main(void)
 {
 	LinkList L = NULL;
-	LinkList L1 = NULL;
+	//LinkList L1 = NULL;
 
-	CreateCLinkList(&L);
-	CreateCLinkList(&L1);
+	CreateLinkList(&L);
+	//CreateCLinkList(&L1);
+	PrintLinkList(L);
 
-	C2_3_T18_LinkTwoCLinks(L, L1);
-	PrintCLinkList(L);
+	C2_3_T23_DelSameElem(L, 10);
+	PrintLinkList(L);
 
-	DestroyCLinkList(&L);
-	DestroyCLinkList(&L1);
+	DestroyLinkList(&L);
+	//DestroyCLinkList(&L1);
 
 
 	return 0;

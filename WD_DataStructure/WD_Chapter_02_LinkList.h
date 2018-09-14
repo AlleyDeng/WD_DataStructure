@@ -30,5 +30,10 @@ LinkList C2_3_T15_SetIntersection(LinkList L1, LinkList L2);
 Status C2_3_T16_IsSubSequence(LinkList LSrc, LinkList LSub);
 Status C2_3_T17_IsDLinkListSymmetry(DLinkList L);
 LinkList C2_3_T18_LinkTwoCLinks(LinkList LHead1, LinkList LHead2);
+void C2_3_T19_CirDelMinAll(LinkList *LHead);
+DLNode *C2_3_T20_Locate(DLinkList LHead, ElemType x);
+Status C2_3_T21_SearchKth(LinkList LHead, int k);
+LNode *C2_3_T22_SearchSameSuf(LinkList LHead1, LinkList LHead2);
+void C2_3_T23_DelSameElem(LinkList L, int n);
 
 #endif /* WD_CHAPTER_02_LINKLIST_H_ */

@@ -234,7 +234,14 @@ Status DestroyCLinkList(LinkList *LHead)
 {
 	LNode *q = *LHead;
 	LNode *head = *LHead;
-	LNode *p = q->next;
+	LNode *p;
+
+	if (LHead == NULL || *LHead == NULL)
+	{
+		return ERROR;
+	}
+
+	p = q->next;
 
 	while (p != *LHead && p != NULL)
 	{

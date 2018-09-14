@@ -1,5 +1,36 @@
 #include "DLinkList.h"
 
+Status CreateDLinkList(DLinkList *LHead)
+{	// 非循环双链表
+	ElemType elem;
+	DLNode *p = NULL, *rear = NULL;
+	p = (DLNode *)malloc(sizeof(DLNode));
+	if (p == NULL)
+	{
+		return ERROR;
+	}
+	p->next = NULL;
+	p->prior = NULL;
+	rear = p;
+	*LHead = p;
+	while (scanf("%d", &elem) != EOF)
+	{
+		p = (DLNode *)malloc(sizeof(DLNode));
+		p->data = elem;
+		p->prior = rear;
+		
+#ifdef C2_3_T20
+		p->freq = 0;	// 2.3.7 T20 专用
+#endif
+
+		rear->next = p;
+		rear = p;
+	}
+	rear->next = NULL;
+
+	return OK;
+}
+
 Status CreateCDLinkList(DLinkList *LHead)
 {	// 创建循环双链表
 	ElemType elem;
@@ -68,6 +99,18 @@ int GetDLinkListLength(DLinkList LHead)
 }
 
 void PrintDLinkList(DLinkList LHead)
+{
+	DLNode *p = LHead->next;
+
+	while (p != NULL)
+	{
+		printf("%d\t", p->data);
+		p = p->next;
+	}
+	printf("\n");
+}
+
+void PrintCDLinkList(DLinkList LHead)
 {
 	DLNode *p = LHead->next;
 
