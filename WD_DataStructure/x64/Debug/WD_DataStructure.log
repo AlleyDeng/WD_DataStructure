@@ -1,5 +1,6 @@
-﻿  WD_Chapter_02_LinkList.cpp
-f:\code\vs_pro\project\wd_datastructure\wd_datastructure\wd_chapter_02_linklist.cpp(770): warning C4101: “m”: 未引用的局部变量
-f:\code\vs_pro\project\wd_datastructure\wd_datastructure\wd_chapter_02_linklist.cpp(582): warning C4715: “C2_3_T17_IsDLinkListSymmetry”: 不是所有的控件路径都返回值
+﻿  WD_Chapter_03_SqStack.cpp
+  SqStack.cpp
+f:\code\vs_pro\project\wd_datastructure\wd_datastructure\sqstack.cpp(5): warning C4101: “i”: 未引用的局部变量
+  正在生成代码...
   WD_DataStructure.vcxproj -> F:\Code\VS_Pro\Project\WD_DataStructure\x64\Debug\WD_DataStructure.exe
   WD_DataStructure.vcxproj -> F:\Code\VS_Pro\Project\WD_DataStructure\x64\Debug\WD_DataStructure.pdb (Partial PDB)

@@ -1,21 +1,20 @@
-
-#include "WD_Chapter_02_LinkList.h"
+#include "WD_Chapter_03_SqStack.h"
 
 int main(void)
 {
-	LinkList L = NULL;
-	//LinkList L1 = NULL;
+	LinkList L;
 
 	CreateLinkList(&L);
-	//CreateCLinkList(&L1);
-	PrintLinkList(L);
-
-	C2_3_T23_DelSameElem(L, 10);
-	PrintLinkList(L);
+	if (C3_1_T04_IsSymmetry(L) == OK)
+	{
+		printf("OK\n");
+	}
+	else
+	{
+		printf("ERROR");
+	}
 
 	DestroyLinkList(&L);
-	//DestroyCLinkList(&L1);
-
 
 	return 0;
 }
