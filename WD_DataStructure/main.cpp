@@ -16,5 +16,6 @@ int main(void)
 
 	DestroyLinkList(&L);
 
+	system("pause");
 	return 0;
 }

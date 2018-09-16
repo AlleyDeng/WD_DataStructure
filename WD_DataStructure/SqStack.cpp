@@ -2,7 +2,6 @@
 
 Status Intiate(SqStack *S)
 {
-	int i;
 	S->top = -1;
 	return OK;
 }

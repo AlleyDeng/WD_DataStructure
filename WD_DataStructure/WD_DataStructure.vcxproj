@@ -113,20 +113,24 @@
     <ClCompile Include="DLinkList.cpp" />
     <ClCompile Include="LinkList.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SqQueue.cpp" />
     <ClCompile Include="SqList.cpp" />
     <ClCompile Include="SqStack.cpp" />
     <ClCompile Include="WD_Chapter_02_LinkList.cpp" />
     <ClCompile Include="WD_Chapter_02_SqList.cpp" />
+    <ClCompile Include="WD_Chapter_03_SqQueue.cpp" />
     <ClCompile Include="WD_Chapter_03_SqStack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DLinkList.h" />
     <ClInclude Include="LinkList.h" />
     <ClInclude Include="Macro.h" />
+    <ClInclude Include="SqQueue.h" />
     <ClInclude Include="SqList.h" />
     <ClInclude Include="SqStack.h" />
     <ClInclude Include="WD_Chapter_02_LinkList.h" />
     <ClInclude Include="WD_Chapter_02_SqList.h" />
+    <ClInclude Include="WD_Chapter_03_SqQueue.h" />
     <ClInclude Include="WD_Chapter_03_SqStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

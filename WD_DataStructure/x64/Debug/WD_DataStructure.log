@@ -1,4 +1,4 @@
-﻿  WD_Chapter_03_SqStack.cpp
+﻿  main.cpp
   SqStack.cpp
 f:\code\vs_pro\project\wd_datastructure\wd_datastructure\sqstack.cpp(5): warning C4101: “i”: 未引用的局部变量
   正在生成代码...

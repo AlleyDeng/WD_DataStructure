@@ -77,3 +77,63 @@ Status C3_1_T04_IsSymmetry(LinkList L)
 
 	return OK;
 }
+
+
+/*
+	3.1.5 05:
+	要求：两个栈都采用顺序存储的形式，共享存储在一个大小MAXSIZE的存储区
+	思路：将两个栈的栈底设在向量的两端，初始时，左边栈顶为-1，右边栈顶为
+	MAXSIZE。两个栈顶指针相邻时为栈满。
+*/
+Status C3_1_T05_Push(SharingTheStack s,  int i, ElemType e)
+{
+	if (i < 0 || i > 1)
+	{
+		return ERROR;
+	}
+	if (s.top[1] - s.top[0] == 1)
+	{
+		return ERROR;
+	}
+
+	switch (i)
+	{
+	case 0: 
+		s.data[++s.top[0]] = e;
+		break;
+	case 1:
+		s.data[--s.top[1]] = e;
+		break;
+	default:
+		return ERROR;
+	}
+
+	return OK;
+}
+
+Status C3_1_T05_Pop(SharingTheStack s, int i, ElemType *e)
+{
+	if (i < 0 || i > 1)
+	{
+		return ERROR;
+	}
+
+	switch (i)
+	{
+	case 0:
+		if (s.top[0] == -1)
+		{
+			return ERROR;
+		}
+		*e = s.data[s.top[0]--];
+		break;
+	case 1:
+		if (s.top[1] == MAXSIZE)
+		{
+			return ERROR;
+		}
+		*e = s.data[s.top[1]++];
+	}
+
+	return OK;
+}
