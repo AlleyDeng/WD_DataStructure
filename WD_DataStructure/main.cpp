@@ -1,20 +1,26 @@
-#include "WD_Chapter_03_SqStack.h"
+#include "WD_Chapter_03_SqQueue.h"
+//#include "SqStack.h"
+
 
 int main(void)
 {
-	LinkList L;
+	SqStack S1;
+	SqStack S2;
+	ElemType e;
+	
+	IntiateSqStack(&S1);
+	IntiateSqStack(&S2);
 
-	CreateLinkList(&L);
-	if (C3_1_T04_IsSymmetry(L) == OK)
-	{
-		printf("OK\n");
-	}
-	else
-	{
-		printf("ERROR");
-	}
-
-	DestroyLinkList(&L);
+	C_3_T03_EnQueue(&S1, &S2, 1);
+	C_3_T03_EnQueue(&S1, &S2, 2);
+	C_3_T03_EnQueue(&S1, &S2, 3);
+	C_3_T03_EnQueue(&S1, &S2, 4);
+	C_3_T03_EnQueue(&S1, &S2, 5);
+	C_3_T03_DeQueue(&S1, &S2, &e);
+	C_3_T03_DeQueue(&S1, &S2, &e);
+	C_3_T03_DeQueue(&S1, &S2, &e);
+	C_3_T03_DeQueue(&S1, &S2, &e);
+	C_3_T03_DeQueue(&S1, &S2, &e);
 
 	system("pause");
 	return 0;

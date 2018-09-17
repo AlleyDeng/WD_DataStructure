@@ -1,6 +1,6 @@
 #include "SqStack.h"
 
-Status Intiate(SqStack *S)
+Status IntiateSqStack(SqStack *S)
 {
 	S->top = -1;
 	return OK;
@@ -13,7 +13,8 @@ Status Push(SqStack *S, ElemType e)
 		return ERROR;
 	}
 
-	S->data[++(S->top)] = e;
+	S->top++;
+	S->data[S->top] = e;
 
 	return OK;
 }

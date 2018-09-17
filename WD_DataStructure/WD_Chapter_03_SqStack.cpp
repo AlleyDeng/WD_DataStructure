@@ -52,7 +52,7 @@ Status C3_1_T04_IsSymmetry(LinkList L)
 	SqStack S;
 	int len = GetLinkListLength(L);
 	LNode *p = L->next;
-	Intiate(&S);
+	IntiateSqStack(&S);
 	for (i = 0; i < len / 2; i++)
 	{
 		Push(&S, p->data);
@@ -85,13 +85,13 @@ Status C3_1_T04_IsSymmetry(LinkList L)
 	思路：将两个栈的栈底设在向量的两端，初始时，左边栈顶为-1，右边栈顶为
 	MAXSIZE。两个栈顶指针相邻时为栈满。
 */
-Status C3_1_T05_Push(SharingTheStack s,  int i, ElemType e)
+Status C3_1_T05_Push(SharingTheStack *S,  int i, ElemType e)
 {
 	if (i < 0 || i > 1)
 	{
 		return ERROR;
 	}
-	if (s.top[1] - s.top[0] == 1)
+	if (S->top[1] - S->top[0] == 1)
 	{
 		return ERROR;
 	}
@@ -99,10 +99,10 @@ Status C3_1_T05_Push(SharingTheStack s,  int i, ElemType e)
 	switch (i)
 	{
 	case 0: 
-		s.data[++s.top[0]] = e;
+		S->data[++S->top[0]] = e;
 		break;
 	case 1:
-		s.data[--s.top[1]] = e;
+		S->data[--S->top[1]] = e;
 		break;
 	default:
 		return ERROR;
@@ -111,7 +111,7 @@ Status C3_1_T05_Push(SharingTheStack s,  int i, ElemType e)
 	return OK;
 }
 
-Status C3_1_T05_Pop(SharingTheStack s, int i, ElemType *e)
+Status C3_1_T05_Pop(SharingTheStack *S, int i, ElemType *e)
 {
 	if (i < 0 || i > 1)
 	{
@@ -121,18 +121,18 @@ Status C3_1_T05_Pop(SharingTheStack s, int i, ElemType *e)
 	switch (i)
 	{
 	case 0:
-		if (s.top[0] == -1)
+		if (S->top[0] == -1)
 		{
 			return ERROR;
 		}
-		*e = s.data[s.top[0]--];
+		*e = S->data[S->top[0]--];
 		break;
 	case 1:
-		if (s.top[1] == MAXSIZE)
+		if (S->top[1] == MAXSIZE)
 		{
 			return ERROR;
 		}
-		*e = s.data[s.top[1]++];
+		*e = S->data[S->top[1]++];
 	}
 
 	return OK;

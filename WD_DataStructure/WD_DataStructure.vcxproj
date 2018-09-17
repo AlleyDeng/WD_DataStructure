@@ -120,6 +120,7 @@
     <ClCompile Include="WD_Chapter_02_SqList.cpp" />
     <ClCompile Include="WD_Chapter_03_SqQueue.cpp" />
     <ClCompile Include="WD_Chapter_03_SqStack.cpp" />
+    <ClCompile Include="WD_Chapter_03_UseStackAndQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DLinkList.h" />
@@ -132,6 +133,7 @@
     <ClInclude Include="WD_Chapter_02_SqList.h" />
     <ClInclude Include="WD_Chapter_03_SqQueue.h" />
     <ClInclude Include="WD_Chapter_03_SqStack.h" />
+    <ClInclude Include="WD_Chapter_03_UseStackAndQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

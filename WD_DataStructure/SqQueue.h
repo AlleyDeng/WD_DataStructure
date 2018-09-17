@@ -4,7 +4,7 @@
 #include "Macro.h"
 
 typedef struct SqQueue
-{
+{	// —≠ª∑∂”¡–
 	ElemType data[MAXSIZE];
 	int front;
 	int rear;
@@ -13,9 +13,9 @@ typedef struct SqQueue
 #endif;
 } SqQueue;
 
-Status InitQueue(SqQueue *Q);
-int GetQueueLength(SqQueue Q);
-Status EqQueue(SqQueue *Q, ElemType e);
+Status InitiateSqQueue(SqQueue *Q);
+//int GetQueueLength(SqQueue *Q);
+Status EnQueue(SqQueue *Q, ElemType e);
 Status DeQueue(SqQueue *Q, ElemType *e);
 
 #endif

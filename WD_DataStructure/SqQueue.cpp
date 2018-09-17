@@ -1,6 +1,6 @@
 #include "SqQueue.h"
 
-Status InitQueue(SqQueue *Q)
+Status InitiateSqQueue(SqQueue *Q)
 {
 	Q->front = 0;
 	Q->rear = 0;
@@ -12,7 +12,7 @@ int GetQueueLength(SqQueue Q)
 	return (Q.rear - Q.front + MAXSIZE) / MAXSIZE;
 }
 
-Status EqQueue(SqQueue *Q, ElemType e)
+Status EnQueue(SqQueue *Q, ElemType e)
 {
 	if ((Q->rear + 1) % MAXSIZE == Q->front)
 	{
@@ -20,6 +20,8 @@ Status EqQueue(SqQueue *Q, ElemType e)
 	}
 	Q->data[Q->rear] = e;
 	Q->rear = (Q->rear + 1) % MAXSIZE;
+
+	return OK;
 }
 
 Status DeQueue(SqQueue *Q, ElemType *e)
