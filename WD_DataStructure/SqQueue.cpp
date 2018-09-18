@@ -36,3 +36,12 @@ Status DeQueue(SqQueue *Q, ElemType *e)
 
 	return OK;
 }
+
+Status IsQueueEmpty(SqQueue Q)
+{
+	if ((Q.rear + 1) % MAXSIZE == Q.front)
+	{
+		return OK;
+	}
+	return ERROR;
+}

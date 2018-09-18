@@ -41,7 +41,7 @@ void C_3_2_T02_Reverse(SqQueue *Q)
 {
 	SqStack S;
 	ElemType e;
-	IntiateSqStack(&S);
+	InitiateSqStack(&S);
 	if (Q->rear == Q->front)
 	{
 		return;

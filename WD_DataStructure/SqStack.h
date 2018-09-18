@@ -9,7 +9,7 @@ typedef struct SqStack
 	int top;
 } SqStack;
 
-Status IntiateSqStack(SqStack *S);
+Status InitiateSqStack(SqStack *S);
 Status Push(SqStack *S, ElemType e);
 Status Pop(SqStack *S, ElemType *e);
 

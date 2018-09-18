@@ -45,7 +45,7 @@
     <ClCompile Include="WD_Chapter_03_SqQueue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="WD_Chapter_03_UseStackAndQueue.cpp">
+    <ClCompile Include="WD_Chapter_03_UseStkAndQue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,7 +80,7 @@
     <ClInclude Include="WD_Chapter_03_SqQueue.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="WD_Chapter_03_UseStackAndQueue.h">
+    <ClInclude Include="WD_Chapter_03_UseStkAndQue.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

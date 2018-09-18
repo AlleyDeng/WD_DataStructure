@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAXSIZE 20
+#define MAXSIZE 10
 
 #define TRUE 1
 #define FALSE 0

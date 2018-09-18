@@ -17,5 +17,6 @@ Status InitiateSqQueue(SqQueue *Q);
 //int GetQueueLength(SqQueue *Q);
 Status EnQueue(SqQueue *Q, ElemType e);
 Status DeQueue(SqQueue *Q, ElemType *e);
+Status IsQueueEmpty(SqQueue Q);
 
 #endif

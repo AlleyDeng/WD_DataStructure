@@ -52,7 +52,7 @@ Status C3_1_T04_IsSymmetry(LinkList L)
 	SqStack S;
 	int len = GetLinkListLength(L);
 	LNode *p = L->next;
-	IntiateSqStack(&S);
+	InitiateSqStack(&S);
 	for (i = 0; i < len / 2; i++)
 	{
 		Push(&S, p->data);

@@ -1,6 +1,6 @@
 #include "SqStack.h"
 
-Status IntiateSqStack(SqStack *S)
+Status InitiateSqStack(SqStack *S)
 {
 	S->top = -1;
 	return OK;
