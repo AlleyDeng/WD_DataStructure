@@ -110,6 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinTree.cpp" />
     <ClCompile Include="DLinkList.cpp" />
     <ClCompile Include="LinkList.cpp" />
     <ClCompile Include="main.cpp" />
@@ -121,8 +122,10 @@
     <ClCompile Include="WD_Chapter_03_SqQueue.cpp" />
     <ClCompile Include="WD_Chapter_03_SqStack.cpp" />
     <ClCompile Include="WD_Chapter_03_UseStkAndQue.cpp" />
+    <ClCompile Include="WD_Chapter_04_BinTree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinTree.h" />
     <ClInclude Include="DLinkList.h" />
     <ClInclude Include="LinkList.h" />
     <ClInclude Include="Macro.h" />
@@ -134,6 +137,7 @@
     <ClInclude Include="WD_Chapter_03_SqQueue.h" />
     <ClInclude Include="WD_Chapter_03_SqStack.h" />
     <ClInclude Include="WD_Chapter_03_UseStkAndQue.h" />
+    <ClInclude Include="WD_Chapter_04_BinTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

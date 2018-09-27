@@ -5,7 +5,7 @@
 	要求：字符串中三种类型括号，判断是否配对
 	思路：左括号入栈，右括号出栈并判断出栈括号是否为对应左括号
 */
-Status C_3_3_T01_MatchBracket(char A[])
+Status C3_3_T01_MatchBracket(char A[])
 {
 	SqStack S;
 	ElemType e;
@@ -67,7 +67,7 @@ Status C_3_3_T01_MatchBracket(char A[])
 	使所有软座车厢都调度到硬座车厢前面
 	思路：逐一检查，硬座车厢入栈
 */
-//void C_3_3_T02_DispatchTrain(char *trainSeq)
+//void C3_3_T02_DispatchTrain(char *trainSeq)
 //{
 //	int i = 0;	// 用于遍历	
 //	int j = 0;
@@ -106,7 +106,7 @@ Status C_3_3_T01_MatchBracket(char A[])
 			2xPn(x)-2(n-1)Pn-2(x),	n > 1.
 */
 
-//double C_3_3_T03_RecursionByStack(int n, double x)
+//double C3_3_T03_RecursionByStack(int n, double x)
 //{	
 //	struct stack
 //	{
@@ -145,7 +145,7 @@ Status C_3_3_T01_MatchBracket(char A[])
 	若等待客车不足四辆，则以货车替代，若无货车等待，允许客车都上船
 	思路：队列
 */
-//void C_3_3_T04_ManageFerry(SqQueue QTrucks,	SqQueue QCoach)
+//void C3_3_T04_ManageFerry(SqQueue QTrucks,	SqQueue QCoach)
 //{
 //	int i = 0; 
 //	int j = 0;

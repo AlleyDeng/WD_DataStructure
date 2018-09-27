@@ -6,7 +6,7 @@
 	要求：设置标志域，tag判断队列是满或者空，保证循环队列中所有的位置都
 	可以利用
 */
-Status C_3_2_T01_EnQueue(SqQueue *Q, ElemType e)
+Status C3_2_T01_EnQueue(SqQueue *Q, ElemType e)
 {
 	if (Q->front == Q->rear && Q->tag == 1)
 	{
@@ -20,7 +20,7 @@ Status C_3_2_T01_EnQueue(SqQueue *Q, ElemType e)
 	return OK;
 }
 
-Status C_3_2_T01_DeQueue(SqQueue *Q, ElemType *e)
+Status C3_2_T01_DeQueue(SqQueue *Q, ElemType *e)
 {	
 	if (Q->front == Q->rear && Q->tag == 0)
 	{
@@ -37,7 +37,7 @@ Status C_3_2_T01_DeQueue(SqQueue *Q, ElemType *e)
 	3.2.5 02:
 	要求：Q是一个队列，利用一个空栈将Ｑ的元素逆置
 */
-void C_3_2_T02_Reverse(SqQueue *Q)
+void C3_2_T02_Reverse(SqQueue *Q)
 {
 	SqStack S;
 	ElemType e;
@@ -64,7 +64,7 @@ void C_3_2_T02_Reverse(SqQueue *Q)
 	3.2.5 03
 	要求：使用两个栈模拟一个队列
 */
-Status C_3_T03_EnQueue(SqStack *S1, SqStack *S2, ElemType e)
+Status C3_T03_EnQueue(SqStack *S1, SqStack *S2, ElemType e)
 {	
 	ElemType tempE;
 	if (S1->top != MAXSIZE)
@@ -89,7 +89,7 @@ Status C_3_T03_EnQueue(SqStack *S1, SqStack *S2, ElemType e)
 	return OK;
 }
 
-Status C_3_T03_DeQueue(SqStack *S1, SqStack *S2, ElemType *e)
+Status C3_T03_DeQueue(SqStack *S1, SqStack *S2, ElemType *e)
 {
 	ElemType tempE;
 	if (S2->top != -1)

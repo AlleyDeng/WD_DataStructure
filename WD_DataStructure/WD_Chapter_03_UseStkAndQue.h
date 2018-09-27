@@ -5,10 +5,10 @@
 #include "SqStack.h"
 #include "SqQueue.h"
 
-Status C_3_3_T01_MatchBracket(char A[]);
-//void C_3_3_T02_DispatchTrain(char *trainSeq);
-//double C_3_3_T03_RecursionByStack(int n, double x);
-//void C_3_3_T04_ManageFerry(SqQueue QTrucks, SqQueue QCoach);
+Status C3_3_T01_MatchBracket(char A[]);
+//void C3_3_T02_DispatchTrain(char *trainSeq);
+//double C3_3_T03_RecursionByStack(int n, double x);
+//void C3_3_T04_ManageFerry(SqQueue QTrucks, SqQueue QCoach);
 
 
 #endif 
